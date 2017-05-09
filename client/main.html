@@ -1,0 +1,37 @@
+<head>
+	<title>Why</title>
+</head>
+
+<body>
+    <h1 style = "padding: 3em 10em 3em 10em; background-color:#6CADFF; font-family:verdana; text-align: center; font-size: 24px; color: white">TASK TIMER</h1>
+    {{> toDoList}}
+</body>
+
+<template name = "toDoList">
+	<table>
+        <tr><th>Task name</th><th>Time taken</th><th>Actions</th>
+        </tr>
+        {{#each toDos}}
+            {{> toDo}}
+        {{/each}}
+	</table>
+    <input type = "text" id = "todo-name" value = "Enter a name!"/>
+    <button id = "add-todo">Add new item!</button>
+    <br>
+    <button id = "reverse-sort">Reverse</button>
+    <br>
+    <button id = "clear">Clear</button>
+</template>
+
+<template name = "toDo">
+	<tr>
+        <td><p class = "{{#if done}}done{{/if}}">{{label}}</p></td>
+        <td>{{timeLeft}}</td>
+        <td>
+            <input class = "markDone" type = "checkbox" checked = "{{#if done}}checked{{/if}}">
+            <button class = "pause">||</button><button class = "delete">X</button>
+        </td>
+
+    </tr>
+
+</template>
